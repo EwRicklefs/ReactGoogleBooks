@@ -1,5 +1,6 @@
 import React from "react";
 
+//standard react form render
 function Form({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>

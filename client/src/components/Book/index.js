@@ -3,6 +3,8 @@ import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
+//main body of our react book code, holds the list of books
+
 function Book({ title, subtitle, authors, link, description, image, Button }) {
   return (
     <ListItem>

@@ -8,6 +8,7 @@ class Nav extends Component {
     width: window.innerWidth
   };
 
+  //this is pretty slick. everything else is pretty standard react code for rendering a nav bar
   updateWidth = () => {
     const newState = { width: window.innerWidth };
 

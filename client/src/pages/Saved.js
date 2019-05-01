@@ -7,15 +7,18 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
+//react code for saved page
 class Saved extends Component {
   state = {
     books: []
   };
 
+  //gets books after the page 'mounts' or loads in
   componentDidMount() {
     this.getSavedBooks();
   }
 
+  //api call for saved books from our database
   getSavedBooks = () => {
     API.getSavedBooks()
       .then(res =>
@@ -26,6 +29,7 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
+  //calls our api call to delete a book
   handleBookDelete = id => {
     API.deleteBook(id).then(res => this.getSavedBooks());
   };
@@ -46,6 +50,7 @@ class Saved extends Component {
         <Row>
           <Col size="md-12">
             <Card title="Saved Books" icon="download">
+            {/* Ternary operator that only creates/populates the list if there are values in state.books */}
               {this.state.books.length ? (
                 <List>
                   {this.state.books.map(book => (

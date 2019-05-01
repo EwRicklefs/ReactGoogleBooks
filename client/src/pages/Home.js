@@ -8,6 +8,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List } from "../components/List";
 
+//react homepage code
 class Home extends Component {
   state = {
     books: [],
@@ -15,6 +16,7 @@ class Home extends Component {
     message: "Search For A Book To Begin!"
   };
 
+  //handles code for any input field change
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -22,6 +24,7 @@ class Home extends Component {
     });
   };
 
+  //calls our getBooks api passing in "q" from state
   getBooks = () => {
     API.getBooks(this.state.q)
       .then(res =>
@@ -37,11 +40,13 @@ class Home extends Component {
       );
   };
 
+    //overwrites/handles form submission
   handleFormSubmit = event => {
     event.preventDefault();
     this.getBooks();
   };
 
+  //saves a book to our database?  TODO:check this out out again.
   handleBookSave = id => {
     const book = this.state.books.find(book => book.id === id);
 
@@ -56,6 +61,7 @@ class Home extends Component {
     }).then(() => this.getBooks());
   };
 
+  //render method for our homepage
   render() {
     return (
       <Container>
@@ -83,6 +89,7 @@ class Home extends Component {
             <Card title="Results">
               {this.state.books.length ? (
                 <List>
+                  {/* iterates over everything in books and adds a book component for each one */}
                   {this.state.books.map(book => (
                     <Book
                       key={book.id}

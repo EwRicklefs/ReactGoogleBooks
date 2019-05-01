@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 
+//react code for NoMatch page (basically the 404 error page)
 function NoMatch() {
   return (
     <Container fluid>

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//sets up axios calls to our server API
 export default {
   getBooks: function(q) {
     return axios.get("/api/google", { params: { q: "title:" + q } });
